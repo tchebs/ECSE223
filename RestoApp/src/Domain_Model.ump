@@ -1,0 +1,61 @@
+﻿class Person{
+  abstract;
+}
+
+class StaffMember{
+  isA Person;
+  boolean isOwner;
+}
+
+class Menu{
+  1 <@>- * MenuItem;
+}
+
+enum Category{
+  Appetizer, Dish, Dessert, Drink
+}
+
+class MenuItem{
+  Category category;
+  String name;
+  double price;
+  String description;
+}
+
+class Table{
+  1 <@>- * Seat;
+  int tableId;
+  double location;
+  boolean isReserved;
+  int numOfSeats;
+  
+}
+
+class FloorPlan{
+  1 <@>- * Table;
+}
+
+class Seat{
+  1 <- 1 Order;
+  int seatId;
+  boolean isOccupied;
+}
+
+class Reservation{
+  1 -> * Table;
+  String customerName;
+  int customerPhone;
+  String customerEmail;
+  Date date;
+}
+
+class Bill {
+  1 -> * Order;
+  double price;
+}
+
+class Order{
+  1 -- * MenuItem;
+  int seatId;
+  boolean cancelled;
+}
